@@ -42,8 +42,6 @@ const (
 )
 
 func makeURL(path ...string) string {
-	log.Println("KEVIN URL")
-	log.Println(strings.Join(path, urlSeparator))
 	return strings.Join(path, urlSeparator)
 }
 
@@ -209,6 +207,8 @@ func (client *gocloak) getRealmURL(realm string, path ...string) string {
 
 func (client *gocloak) getAdminRealmURL(realm string, path ...string) string {
 	path = append([]string{client.basePath, client.Config.authAdminRealms, realm}, path...)
+	log.Println("KEVIN URL")
+	log.Println(strings.Join(path, urlSeparator))
 	return makeURL(path...)
 }
 
