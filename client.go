@@ -207,10 +207,10 @@ func (client *gocloak) getRealmURL(realm string, path ...string) string {
 
 func (client *gocloak) getAdminRealmURL(realm string, path ...string) string {
 	path = append([]string{client.basePath, client.Config.authAdminRealms, realm}, path...)
-	if path[0] == "KEVIN" {
-		log.Println("KEVIN URL")
-		log.Println(path)
-	}
+
+	log.Println("KEVIN URL")
+	log.Println(path)
+
 	return makeURL(path...)
 }
 
