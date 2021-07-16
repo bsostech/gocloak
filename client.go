@@ -211,7 +211,7 @@ func (client *gocloak) getAdminRealmURL(realm string, path ...string) string {
 	log.Println("KEVIN URL")
 	log.Println(path)
 	if len(path) > 2 {
-		if path[2] == "KEVIN" {
+		if strings.Contains(path[2], "KEVIN") {
 			path = path[:2]
 			path[1] += "?max=1"
 		}
