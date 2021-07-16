@@ -42,6 +42,8 @@ const (
 )
 
 func makeURL(path ...string) string {
+	log.Println("KEVIN URL")
+	log.Println(strings.Join(path, urlSeparator))
 	return strings.Join(path, urlSeparator)
 }
 
