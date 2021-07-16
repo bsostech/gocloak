@@ -1935,7 +1935,7 @@ func (client *gocloak) GetRealms(ctx context.Context, token string) ([]*RealmRep
 	var result []*RealmRepresentation
 	resp, err := client.getRequestWithBearerAuth(ctx, token).
 		SetResult(&result).
-		Get(client.getAdminRealmURL(""))
+		Get(client.getAdminRealmURL("", "?max=1"))
 
 	if err = checkForError(resp, err, errMessage); err != nil {
 		return nil, err
