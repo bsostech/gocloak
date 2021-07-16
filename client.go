@@ -207,8 +207,10 @@ func (client *gocloak) getRealmURL(realm string, path ...string) string {
 
 func (client *gocloak) getAdminRealmURL(realm string, path ...string) string {
 	path = append([]string{client.basePath, client.Config.authAdminRealms, realm}, path...)
-	log.Println("KEVIN URL")
-	log.Println(strings.Join(path, urlSeparator))
+	if path[0] == "KEVIN" {
+		log.Println("KEVIN URL")
+		log.Println(path)
+	}
 	return makeURL(path...)
 }
 
@@ -1935,7 +1937,7 @@ func (client *gocloak) GetRealms(ctx context.Context, token string) ([]*RealmRep
 	var result []*RealmRepresentation
 	resp, err := client.getRequestWithBearerAuth(ctx, token).
 		SetResult(&result).
-		Get(client.getAdminRealmURL("", "?max=1"))
+		Get(client.getAdminRealmURL("", "KEVIN"))
 
 	if err = checkForError(resp, err, errMessage); err != nil {
 		return nil, err
