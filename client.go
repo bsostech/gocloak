@@ -5,6 +5,7 @@ import (
 	"encoding/base64"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"net/url"
 	"strings"
@@ -1937,6 +1938,7 @@ func (client *gocloak) GetRealms(ctx context.Context, token string) ([]*RealmRep
 	if err = checkForError(resp, err, errMessage); err != nil {
 		return nil, err
 	}
+	log.Println("KEVIN")
 
 	return result, nil
 }
