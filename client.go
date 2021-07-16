@@ -1929,7 +1929,7 @@ func (client *gocloak) GetRealm(ctx context.Context, token, realm string) (*Real
 func (client *gocloak) GetRealms(ctx context.Context, token string) ([]*RealmRepresentation, error) {
 	const errMessage = "could not get realms"
 
-	var result []*RealmRepresentation
+	result := make([]*RealmRepresentation, 1)
 	resp, err := client.getRequestWithBearerAuth(ctx, token).
 		SetResult(&result).
 		Get(client.getAdminRealmURL(""))
